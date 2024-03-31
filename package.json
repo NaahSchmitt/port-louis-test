@@ -9,6 +9,7 @@
         "build": "npx tsc"
     },
     "devDependencies": {
+        "@types/node": "^20.12.2",
         "tsc-watch": "^6.2.0",
         "typescript": "^5.4.3"
     }
