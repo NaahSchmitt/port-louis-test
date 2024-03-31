@@ -1,9 +1,10 @@
 import { extractNumberFromAssetFileName } from "../../../infrastructure/helpers/extract-number";
 import { FileSystemHelper } from "../../../infrastructure/helpers/file-system.helper"
+import { OrderDto, OrderItemDto } from "../dtos/order.dto";
 
 export class OrdersAdapter {
-    async getOrders() {
-        const orders = []
+    async getOrders(): Promise<OrderDto[]> {
+        const orders: OrderDto[] = []
 
         const getFolderOrdersAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Pedidos")
 
@@ -15,7 +16,7 @@ export class OrdersAdapter {
                 const currentOrderFileName = extractNumberFromAssetFileName(filePath);
 
                 if (currentFile) {
-                    const data = currentFile.split('\n').map(item => item && JSON.parse(item.trim())).filter(item => !!item);
+                    const data: OrderItemDto[] = currentFile.split('\n').map(item => item && JSON.parse(item.trim())).filter(item => !!item);
                     orders.push({ id_pedido: Number(currentOrderFileName), data })
                 }
             } catch (error) {
