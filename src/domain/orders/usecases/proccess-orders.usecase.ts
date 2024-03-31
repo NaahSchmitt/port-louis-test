@@ -1,3 +1,4 @@
+import { FileSystemHelper } from "../../../infrastructure/helpers/file-system.helper";
 import { InvoicesAdapter } from "../../invoices/adapter/invoices.adapter";
 import { InvoiceDto } from "../../invoices/dtos/invoices.dto";
 import { OrdersAdapter } from "../adapter/orders.adapter"
@@ -86,8 +87,8 @@ export class ProccessOrdersUseCase {
         } : null;
     }
 
-    extractAndFilterFinalReportItems(report: OrderReportDto[]): (OrderFinalReportDto | null)[] {
-        return report.map(this.extractFinalReportItem).filter(item => !!item);
+    extractAndFilterFinalReportItems(report: OrderReportDto[]): OrderFinalReportDto[] {
+        return report.map(this.extractFinalReportItem).filter(item => !!item) as OrderFinalReportDto[];
     }
 
     async handle() {
@@ -99,11 +100,10 @@ export class ProccessOrdersUseCase {
             id_pedido: order.id_pedido
         }));
 
-        const finalReport = this.extractAndFilterFinalReportItems(ordersReport)
+        const finalReport: OrderFinalReportDto[] = this.extractAndFilterFinalReportItems(ordersReport)
 
-        console.clear()
-        console.log(JSON.stringify(finalReport))
+        const resultFileName = '/assets/result.txt';
 
-        console.log("ProccessOrdersUseCase")
+        await FileSystemHelper.writeFile(resultFileName, JSON.stringify(finalReport, null, 4))
     }
 }

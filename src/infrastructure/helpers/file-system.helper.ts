@@ -44,5 +44,14 @@ export const FileSystemHelper = {
         } catch (error) {
             console.error(error)
         }
+    },
+    async writeFile(pathInformed: string, content: any) {
+        const path = `${process.cwd()}/${pathInformed}`;
+
+        try {
+            return await fs.promises.writeFile(path, content)
+        } catch (error) {
+            console.error(error)
+        }
     }
 };
