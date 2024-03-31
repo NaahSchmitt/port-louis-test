@@ -6,12 +6,12 @@ export class ProccessOrdersUseCase {
 
     async handle() {
 
-        const allOrders = await this.ordersAdapter.getAllOrders();
+        const getOrders = await this.ordersAdapter.getOrders();
 
         // const getFolderInvoicesAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Notas")
         // const getFolderInvoicesAssetsFiles = await FileSystemHelper.getFilesInFolder(getFolderInvoicesAssetsPath)
 
-        console.log({ allOrders })
+        console.log({ getOrders })
         console.log("ProccessOrdersUseCase")
     }
 }

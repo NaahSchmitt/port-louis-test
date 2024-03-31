@@ -1,7 +1,7 @@
 import { FileSystemHelper } from "../../../infrastructure/helpers/file-system.helper"
 
 export class OrdersAdapter {
-    async getAllOrders() {
+    async getOrders() {
         const orders = []
 
         const getFolderOrdersAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Pedidos")
