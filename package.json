@@ -8,9 +8,9 @@
         "npm": "10.2.4"
     },
     "scripts": {
-        "start:dev": "tsc-watch --onSuccess \"node dist/main.js\"",
-        "start:prod": "npx tsc && node dist/main.js",
-        "test": "jest",
+        "start:dev": "tsc-watch --onSuccess \"node dist/src/main.js\"",
+        "start:prod": "npx tsc && node dist/src/main.js",
+        "test": "jest --passWithNoTests --runInBand --no-cache --verbose",
         "build": "npx tsc"
     },
     "devDependencies": {
