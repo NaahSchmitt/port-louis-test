@@ -3,7 +3,8 @@
       "target": "ESNext",
       "module": "CommonJS",
       "outDir": "./dist",
-      "strict": true
+      "strict": true,
+      "esModuleInterop": true
     }
   }
   

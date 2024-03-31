@@ -1,2 +1,7 @@
-const message: string = "Hello, world!";
-console.log({message});
+import { OrdersController } from "./domain/orders/presentation/orders.controller";
+
+function bootstrap() {
+    new OrdersController().proccessOrders()
+}
+
+bootstrap();

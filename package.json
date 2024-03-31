@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
-        "start": "node src/main.ts",
+        "start:dev": "node src/main.ts",
+        "start:prod": "npx tsc && node dist/main.ts",
         "build": "npx tsc"
     },
     "devDependencies": {
