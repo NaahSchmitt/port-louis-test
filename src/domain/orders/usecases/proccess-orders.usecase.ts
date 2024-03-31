@@ -8,7 +8,7 @@ export class ProccessOrdersUseCase {
     async handle() {
         const getOrders = await this.ordersAdapter.getOrders();
         const getInvoices = await this.invoicesAdapter.getInvoices();
-        console.log(getOrders[0])
+        console.log(getInvoices[0])
         // for (let index = 0; index < getOrders.length; index++) {
         //     const currentOrder = getOrders[index];
         // }
