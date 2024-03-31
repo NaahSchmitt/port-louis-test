@@ -1,8 +1,28 @@
 # API Teste Técnico Port Louis - Back end
 
-O projeto foi contruido em TypeScript com Node 20.11.0 e NPM 10.2.4
+O projeto foi desenvolvido utilizando TypeScript, Node.js na versão **20.11.0** e NPM na versão **10.2.4**. Ele segue uma arquitetura baseada no conceito de Hexagonal Architecture (Arquitetura Hexagonal) como referência.
 
-Primeiro instale as dependências
+## Sobre
+
+O `package.json` contém dependências essenciais: 
+
+-  **dotenv**: Utilizado para facilitar o gerenciamento de variáveis de ambiente.
+
+-  **express**: Auxilia na execução da API REST.
+
+-  **swagger**: Facilita a visualização e documentação das rotas da API REST.
+
+-  **typescript**: Essencial para um desenvolvimento mais organizado, trazendo benefícios como tipagem estática e melhor manutenibilidade do código
+
+## Opcional
+
+A porta padrão para executar o projeto é a **7777**. No entanto, se desejar alterá-la, você pode simplesmente criar uma cópia do arquivo `.env.example` com nome `.env` e definir o valor de sua preferência para a variável `PORT`.
+
+```bash
+
+cp .env.example .env
+
+```
 
 ## Instalação
 
