@@ -1,0 +1,30 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Teste Técnico Port Louis - Back end",
+        "description": "Documentação da API de Teste Técnico Port Louis - Back end",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "Orders",
+            "description": "Operações relacionadas a pedidos"
+        }
+    ],
+    "paths": {
+        "/process-orders": {
+            "get": {
+                "summary": "Processar pedidos",
+                "responses": {
+                    "200": {
+                        "description": "Sucesso no processamento"
+                    },
+                    "500": {
+                        "description": "Erro no processamento"
+                    }
+                },
+                "tags": ["Orders"]
+            }
+        }
+    }
+}

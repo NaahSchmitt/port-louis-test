@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { ProccessOrdersUseCase } from "../usecases/proccess-orders.usecase";
 import { ProccessOrdersEnum } from '../enum/proccess-orders.enum';
 
