@@ -1,15 +1,17 @@
 import { FileSystemHelper } from "../../../infrastructure/helpers/file-system.helper"
+import { OrdersAdapter } from "../adapter/orders.adapter"
 
 export class ProccessOrdersUseCase {
+    ordersAdapter = new OrdersAdapter();
+
     async handle() {
 
-        const getFolderOrdersAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Pedidos")
-        const getFolderOrdersAssetsFiles = await FileSystemHelper.getFilesInFolder(getFolderOrdersAssetsPath)
+        const allOrders = await this.ordersAdapter.getAllOrders();
 
-        const getFolderInvoicesAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Notas")
-        const getFolderInvoicesAssetsFiles = await FileSystemHelper.getFilesInFolder(getFolderInvoicesAssetsPath)
+        // const getFolderInvoicesAssetsPath = await FileSystemHelper.checkFolderExist("/assets/Notas")
+        // const getFolderInvoicesAssetsFiles = await FileSystemHelper.getFilesInFolder(getFolderInvoicesAssetsPath)
 
-        console.log({ getFolderOrdersAssetsPath, getFolderInvoicesAssetsPath, getFolderOrdersAssetsFiles, getFolderInvoicesAssetsFiles })
+        console.log({ allOrders })
         console.log("ProccessOrdersUseCase")
     }
 }

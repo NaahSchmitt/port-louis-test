@@ -37,5 +37,12 @@ export const FileSystemHelper = {
             console.error('Error listing files:', error);
             return [];
         }
+    },
+    async readFile(filePath: string) {
+        try {
+            return await fs.promises.readFile(filePath, "utf8")
+        } catch (error) {
+            console.error(error)
+        }
     }
 };
