@@ -1,4 +1,4 @@
-export interface OrderItemDto {
+export interface OrderDataItemDto {
     número_item: number;
     código_produto: string;
     quantidade_produto: number;
@@ -7,5 +7,5 @@ export interface OrderItemDto {
 
 export interface OrderDto {
     id_pedido: number;
-    data: OrderItemDto[];
+    data: OrderDataItemDto[];
 }
