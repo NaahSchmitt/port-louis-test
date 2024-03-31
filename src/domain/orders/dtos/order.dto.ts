@@ -34,3 +34,15 @@ export interface OrderCalculateItemsBalanceAndGenerateReportDto extends OrderCal
 export interface OrderReportDto extends OrderCalculateItemsBalanceAndGenerateReportDto {
     id_pedido: number;
 }
+
+export interface OrderFinalReportPendingItemDto {
+    número_item: string;
+    saldo_quantidade: number;
+};
+
+export interface OrderFinalReportDto {
+    id_pedido: number;
+    valor_total_pedido: string;
+    saldo_pendente: string;
+    items_pendentes: OrderFinalReportPendingItemDto[];
+};

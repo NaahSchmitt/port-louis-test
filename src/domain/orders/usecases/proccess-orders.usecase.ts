@@ -1,7 +1,7 @@
 import { InvoicesAdapter } from "../../invoices/adapter/invoices.adapter";
 import { InvoiceDto } from "../../invoices/dtos/invoices.dto";
 import { OrdersAdapter } from "../adapter/orders.adapter"
-import { ItemBalanceSummaryDto, OrderCalculateItemsBalanceAndGenerateReportDto, OrderCalculateItemsBalanceDto, OrderDataItemDto, OrderDto, OrderReportDto } from "../dtos/order.dto";
+import { ItemBalanceSummaryDto, OrderCalculateItemsBalanceAndGenerateReportDto, OrderCalculateItemsBalanceDto, OrderDataItemDto, OrderDto, OrderFinalReportDto, OrderReportDto } from "../dtos/order.dto";
 
 export class ProccessOrdersUseCase {
     ordersAdapter = new OrdersAdapter();
@@ -77,6 +77,19 @@ export class ProccessOrdersUseCase {
         }
     }
 
+    extractFinalReportItem(item: OrderReportDto): OrderFinalReportDto | null {
+        return item.missingInvoiceItems ? {
+            id_pedido: item.id_pedido,
+            valor_total_pedido: item.orderTotalValue,
+            saldo_pendente: item.missingItemsTotalValue,
+            items_pendentes: item.missingItemsList
+        } : null;
+    }
+
+    extractAndFilterFinalReportItems(report: OrderReportDto[]): (OrderFinalReportDto | null)[] {
+        return report.map(this.extractFinalReportItem).filter(item => !!item);
+    }
+
     async handle() {
         const orders = await this.ordersAdapter.getOrders();
         const invoices = await this.invoicesAdapter.getInvoices();
@@ -86,13 +99,10 @@ export class ProccessOrdersUseCase {
             id_pedido: order.id_pedido
         }));
 
-        console.log({ ordersReport });
+        const finalReport = this.extractAndFilterFinalReportItems(ordersReport)
 
-        // for (let index = 0; index < getOrders.length; index++) {
-        //     const currentOrder = getOrders[index];
-        // }
-
-        // console.log({ getOrders, getInvoices })   
+        console.clear()
+        console.log(JSON.stringify(finalReport))
 
         console.log("ProccessOrdersUseCase")
     }
