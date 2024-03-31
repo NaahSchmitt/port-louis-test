@@ -105,5 +105,10 @@ export class ProccessOrdersUseCase {
         const resultFileName = '/assets/result.txt';
 
         await FileSystemHelper.writeFile(resultFileName, JSON.stringify(finalReport, null, 4))
+
+        return {
+            file_path: resultFileName,
+            data: finalReport
+        }
     }
 }
