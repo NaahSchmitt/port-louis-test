@@ -14,6 +14,9 @@ O `package.json` contém dependências essenciais:
 
 -  **typescript**: Essencial para um desenvolvimento mais organizado, trazendo benefícios como tipagem estática e melhor manutenibilidade do código
 
+-  **jest**: Para testes unitários.
+
+
 ## Opcional
 
 A porta padrão para executar o projeto é a **7777**. No entanto, se desejar alterá-la, você pode simplesmente criar uma cópia do arquivo `.env.example` com nome `.env` e definir o valor de sua preferência para a variável `PORT`.
@@ -29,6 +32,15 @@ cp .env.example .env
 ```bash
 
 npm install
+
+```
+
+## Execute o teste unitário
+
+
+```bash
+
+npm run test
 
 ```
 
