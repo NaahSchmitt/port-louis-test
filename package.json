@@ -5,7 +5,7 @@
     "type": "commonjs",
     "scripts": {
         "start:dev": "tsc-watch --onSuccess \"node dist/main.js\"",
-        "start:prod": "npx tsc && node dist/main.ts",
+        "start:prod": "npx tsc && node dist/main.js",
         "build": "npx tsc"
     },
     "devDependencies": {
