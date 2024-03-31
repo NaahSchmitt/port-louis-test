@@ -12,7 +12,7 @@ npm install
 
 ## Execute em modo desenvolvimento
 
-Se você não tiver definido PORT no .env, então será porta http://localhost:7777
+Se você não tiver definido PORT no .env, então será http://localhost:7777
 
 ```bash
 
@@ -22,9 +22,9 @@ npm run start:dev
 
 ## Execute em modo produção
 
-O modo produção faz o build e executa (Porta Padrão 7777, ou seja )
+O modo produção faz o build e executa (Porta padrão 7777)
 
-Se você não tiver definido PORT no .env, então será porta http://localhost:7777
+Se você não tiver definido PORT no .env, então será http://localhost:7777
 
 ```bash
 
@@ -33,3 +33,9 @@ npm run start:prod
 ```
 
 ![Swagger](documentation/printscreen/swagger.png)
+
+## Resultado
+
+O resultado da http://localhost:7777/process-orders fica salvo em assets/result.txt
+
+![Resultado](documentation/printscreen/result.png)
